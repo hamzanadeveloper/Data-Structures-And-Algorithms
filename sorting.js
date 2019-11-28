@@ -4,36 +4,25 @@ var arr2 = [2,3,5,1,4,6];
 var arr3 = [2,3,5,1,4,6];
 var arr4 = [2,3,5,1,4,6];
 
-// console.log("Selection Sort");
-// var selectionSorted = selectionSort(arr);
-// console.log(selectionSorted);
-//
-// console.log("Bubble Sort");
-// var bubbleSorted = bubbleSort(arr1);
-// console.log(bubbleSorted);
-//
-// console.log("Merge Sort");
-// var mergeSorted = mergeSort(arr2);
-// console.log(mergeSorted);
-//
-// console.log("Quick Sort");
-// var quickSorted = quickSort(arr3);
-// console.log(quickSorted);
-//
-// console.log("Heap Sort");
-// var heapSorted = heapSort(arr4);
-// console.log(heapSorted);
+console.log("Selection Sort");
+var selectionSorted = selectionSort(arr);
+console.log(selectionSorted);
 
-console.log("Hamza Selection Sort");
-var hselectionSorted = hSelectionSort(arr);
-console.log(hselectionSorted);
+console.log("Bubble Sort");
+var bubbleSorted = bubbleSort(arr1);
+console.log(bubbleSorted);
 
-console.log("Hamza Bubble Sort");
-var hbubbleSorted = hBubbleSort(arr1);
+console.log("Merge Sort");
+var mergeSorted = mergeSort(arr2);
+console.log(mergeSorted);
 
-console.log("Hamza Merge Sort");
-var hmergeSorted = hMergeSort(arr2);
-console.log(hmergeSorted);
+console.log("Quick Sort");
+var quickSorted = quickSort(arr3);
+console.log(quickSorted);
+
+console.log("Heap Sort");
+var heapSorted = heapSort(arr4);
+console.log(heapSorted);
 
 function selectionSort(arr){ //    O(n) = n^2
     var maxPos, temp, i, j, n = arr.length;
@@ -166,73 +155,4 @@ function heapSort(input) {
     }
 
     return input;
-}
-
-
-function hSelectionSort(array){
-    var n = array.length - 1;
-    var maxPos;
-
-    for(var i = n; i > 0; i--){
-        var maxPos = i;
-        for(var j = 0; j < i; j++){
-            if(array[j] > array[maxPos]) maxPos = j;
-        }
-
-        var temp = array[i];
-        array[i] = array[maxPos];
-        array[maxPos] = temp;
-    }
-    return array;
-}
-
-function hBubbleSort(array){
-    var swap = false;
-    for(var i = 0; i < array.length-1; i++){
-        if(array[i] >  array[i+1]){
-            var temp = array[i];
-            array[i] = array[i+1];
-            array[i+1] = temp;
-            swap = true;
-        }
-    }
-    if(swap === true) hBubbleSort(array);
-    else{
-        console.log(array);
-    }
-}
-
-function hMergeSort(array){
-    if (array.length <= 1) {
-        return array;
-    }
-
-    const middle = Math.floor(array.length /2);
-    const left = array.slice(0, middle);
-    const right = array.slice(middle);
-
-    return hMerge(hMergeSort(left),hMergeSort(right));
-}
-
-function hMerge(left, right){
-    var result = [], leftIndex = 0, rightIndex = 0;
-
-    while(leftIndex < left.length && rightIndex < right.length){
-        if(left[leftIndex] < right[rightIndex]){
-            result.push(left[leftIndex]);
-            leftIndex++;
-        } else {
-            result.push(right[rightIndex]);
-            rightIndex++;
-        }
-    }
-
-    return result
-        .concat(left.slice(leftIndex))
-        .concat(right.slice(rightIndex));
-
-}
-
-function hQuickSort(arr){
-    var pivot = Math.floor(arr.length/2);
 }

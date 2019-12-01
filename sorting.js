@@ -1,31 +1,31 @@
-var arr = [2,3,5,1,4,6];
-var arr1 = [2,3,5,1,4,6];
-var arr2 = [2,3,5,1,4,6];
-var arr3 = [2,3,5,1,4,6];
-var arr4 = [2,3,5,1,4,6];
+let arr = [2,3,5,1,4,6];
+let arr1 = [2,3,5,1,4,6];
+let arr2 = [2,3,5,1,4,6];
+let arr3 = [2,3,5,1,4,6];
+let arr4 = [2,3,5,1,4,6];
 
 console.log("Selection Sort");
-var selectionSorted = selectionSort(arr);
+let selectionSorted = selectionSort(arr);
 console.log(selectionSorted);
 
 console.log("Bubble Sort");
-var bubbleSorted = bubbleSort(arr1);
+let bubbleSorted = bubbleSort(arr1);
 console.log(bubbleSorted);
 
 console.log("Merge Sort");
-var mergeSorted = mergeSort(arr2);
+let mergeSorted = mergeSort(arr2);
 console.log(mergeSorted);
 
 console.log("Quick Sort");
-var quickSorted = quickSort(arr3);
+let quickSorted = quickSort(arr3);
 console.log(quickSorted);
 
 console.log("Heap Sort");
-var heapSorted = heapSort(arr4);
+let heapSorted = heapSort(arr4);
 console.log(heapSorted);
 
 function selectionSort(arr){ //    O(n) = n^2
-    var maxPos, temp, i, j, n = arr.length;
+    let maxPos, temp, i, j, n = arr.length;
 
     for(i = n-1; i > 0; --i){
         maxPos = i;
@@ -40,10 +40,10 @@ function selectionSort(arr){ //    O(n) = n^2
 }
 
 function bubbleSort(arr){ // O(n^2)
-    var swap = false;
-    for(var i = 0;i < arr.length-1;i++){
+    let swap = false;
+    for(let i = 0;i < arr.length-1;i++){
         if(arr[i] > arr[i+1]){
-            var temp = arr[i+1];
+            let temp = arr[i+1];
             arr[i+1] = arr[i];
             arr[i] = temp;
             swap = true;
@@ -93,13 +93,13 @@ function quickSort(origArray) { //Best generic sorting method with runtime compl
         return origArray;
     } else {
 
-        var left = [];
-        var right = [];
-        var newArray = [];
-        var pivot = origArray.pop();
-        var length = origArray.length;
+        let left = [];
+        let right = [];
+        let newArray = [];
+        let pivot = origArray.pop();
+        let length = origArray.length;
 
-        for (var i = 0; i < length; i++) {
+        for (let i = 0; i < length; i++) {
             if (origArray[i] <= pivot) {
                 left.push(origArray[i]);
             } else {
@@ -110,12 +110,12 @@ function quickSort(origArray) { //Best generic sorting method with runtime compl
         return newArray.concat(quickSort(left), pivot, quickSort(right));
     }
 }
-var array_length;
+let array_length;
 
 function heap_root(input, i) {
-    var left = 2 * i + 1;
-    var right = 2 * i + 2;
-    var max = i;
+    let left = 2 * i + 1;
+    let right = 2 * i + 2;
+    let max = i;
 
     if (left < array_length && input[left] > input[max]) {
         max = left;
@@ -132,7 +132,7 @@ function heap_root(input, i) {
 }
 
 function swap(input, index_A, index_B) {
-    var temp = input[index_A];
+    let temp = input[index_A];
 
     input[index_A] = input[index_B];
     input[index_B] = temp;
@@ -142,7 +142,7 @@ function heapSort(input) {
 
     array_length = input.length;
 
-    for (var i = Math.floor(array_length / 2); i >= 0; i -= 1)      { //percolate the internal nodes, percolating the last root node down.
+    for (let i = Math.floor(array_length / 2); i >= 0; i -= 1)      { //percolate the internal nodes, percolating the last root node down.
         heap_root(input, i);
     }
 
